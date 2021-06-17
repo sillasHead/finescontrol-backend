@@ -1,7 +1,7 @@
 package gp.finescontrolbackend.services;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import gp.finescontrolbackend.dtos.DriverDTO;
+import gp.finescontrolbackend.entities.DriverEntity;
 import gp.finescontrolbackend.repositories.DriverRepository;
 
 @Service
@@ -22,10 +23,16 @@ public class DriverService {
 
     @Transactional(readOnly = true)
     public List<DriverDTO> findAll() {
-        List<DriverDTO> driversDTO = new ArrayList<>();
-        repository.findAll().forEach(driver -> 
-            driversDTO.add(modelMapper.map(driver, DriverDTO.class))
-        );
-        return driversDTO;
+        return repository.findAll().stream()
+        .map(driver -> modelMapper.map(driver, DriverDTO.class))
+        .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public DriverDTO update(Long id, DriverDTO driverDTO) {
+        DriverEntity driver = repository.getOne(id);
+        modelMapper.map(driverDTO, driver);
+        DriverDTO driverUpdated = modelMapper.map(repository.save(driver), DriverDTO.class);
+        return driverUpdated;
     }
 }

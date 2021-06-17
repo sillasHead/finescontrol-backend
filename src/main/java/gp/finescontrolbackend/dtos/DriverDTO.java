@@ -16,4 +16,5 @@ public class DriverDTO implements Serializable {
     
     private Long id;
     private String name;
+    private boolean status; //TODO converter em enum
 }
