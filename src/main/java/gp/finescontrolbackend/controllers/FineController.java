@@ -14,13 +14,13 @@ import gp.finescontrolbackend.services.FineService;
 @RestController
 @RequestMapping(value = "/multas")
 public class FineController {
-    
+
     @Autowired
     private FineService service;
 
     @GetMapping
     public ResponseEntity<List<FineDTO>> findAll() {
         List<FineDTO> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        return ResponseEntity.ok(list);
     }
 }

@@ -1,7 +1,7 @@
 package gp.finescontrolbackend.services;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import gp.finescontrolbackend.repositories.InfractionRepository;
 
 @Service
 public class InfractionService {
-    
+
     @Autowired
     private ModelMapper modelMapper;
 
@@ -22,10 +22,8 @@ public class InfractionService {
 
     @Transactional(readOnly = true)
     public List<InfractionDTO> findAll() {
-        List<InfractionDTO> infractions = new ArrayList<>();
-        repository.findAll().forEach(infraction -> 
-            infractions.add(modelMapper.map(infraction, InfractionDTO.class))
-        );
-        return infractions;
-    }    
+        return repository.findAll().stream()
+            .map(infraction -> modelMapper.map(infraction, InfractionDTO.class))
+            .collect(Collectors.toList());
+    }
 }

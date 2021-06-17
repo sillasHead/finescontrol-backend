@@ -21,6 +21,6 @@ public class CarController {
     @GetMapping
     public ResponseEntity<List<CarDTO>> findAll() {
         List<CarDTO> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        return ResponseEntity.ok(list);
     }
 }

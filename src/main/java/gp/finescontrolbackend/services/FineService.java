@@ -1,7 +1,7 @@
 package gp.finescontrolbackend.services;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +22,8 @@ public class FineService {
 
     @Transactional(readOnly = true)
     public List<FineDTO> findAll() {
-        List<FineDTO> fines = new ArrayList<>();
-        repository.findAll().forEach(fine -> 
-            fines.add(modelMapper.map(fine, FineDTO.class))
-        );
-        return fines;
+        return repository.findAll().stream()
+            .map(fine -> modelMapper.map(fine, FineDTO.class))
+            .collect(Collectors.toList());
     }    
 }

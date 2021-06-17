@@ -1,7 +1,7 @@
 package gp.finescontrolbackend.services;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +22,8 @@ public class CarService {
 
     @Transactional(readOnly = true)
     public List<CarDTO> findAll() {
-        List<CarDTO> cars = new ArrayList<>();
-        repository.findAll().forEach(car -> 
-            cars.add(modelMapper.map(car, CarDTO.class))
-        );
-        return cars;
+        return repository.findAll().stream()
+            .map(car -> modelMapper.map(car, CarDTO.class))
+            .collect(Collectors.toList());
     }
 }

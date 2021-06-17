@@ -1,16 +1,17 @@
-insert into car (plate,brand,collor,renavam) values
-('aaa1111','iveco','branco','123456789'),
-('bbb2222','mercedes','branco','123456789'),
-('ccc3333','foton','verde','123456789'),
-('ddd4444','delivery','azul','123456789'),
-('eee5555','peugeot','branco','123456789');
+insert into car (plate,brand,color,renavam) values
+('AAA1111','IVECO','BRANCO','123456789'),
+('BBB2222','MERCEDES','BRANCO','123456789'),
+('CCC3333','FOTON','VERDE','123456789'),
+('DDD4444','DELIVERY','AZUL','123456789'),
+('EEE5555','PEUGEOT','BRANCO','123456789');
 
-insert into driver (name) values
-('kennedy'),
-('adilson'),
-('edson'),
-('claudio'),
-('carlos vagner');
+insert into driver (name, status) values
+('KENNEDY', true),
+('ADILSON', true),
+('EDSON', true),
+('CLAUDIO', true),
+('CARLOS VAGNER', true),
+('MARCIO', false);
 
 insert into infraction (description,amount,type) values
 ('velocidade',130.16,'media'),

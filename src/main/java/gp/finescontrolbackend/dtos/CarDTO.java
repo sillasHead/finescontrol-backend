@@ -17,6 +17,6 @@ public class CarDTO implements Serializable {
     private Long id;
     private String plate;
     private String brand;
-    private String collor;
+    private String color;
     private String renavam;
 }

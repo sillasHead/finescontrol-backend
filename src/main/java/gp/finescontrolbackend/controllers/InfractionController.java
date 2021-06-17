@@ -21,6 +21,6 @@ public class InfractionController {
     @GetMapping
     public ResponseEntity<List<InfractionDTO>> findAll() {
         List<InfractionDTO> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        return ResponseEntity.ok(list);
     }
 }

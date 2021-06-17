@@ -26,6 +26,6 @@ public class CarEntity implements Serializable {
     private Long id;
     private @Setter String plate;
     private @Setter String brand;
-    private @Setter String collor;
+    private @Setter String color;
     private @Setter String renavam;
 }
