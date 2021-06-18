@@ -29,6 +29,13 @@ public class DriverService {
     }
 
     @Transactional
+    public DriverDTO insert(DriverDTO driverDTO) {
+        DriverEntity driver = modelMapper.map(driverDTO, DriverEntity.class);
+        driver = repository.save(driver);
+        return modelMapper.map(driver, DriverDTO.class);
+    }
+
+    @Transactional
     public DriverDTO update(Long id, DriverDTO driverDTO) {
         DriverEntity driver = repository.getOne(id);
         modelMapper.map(driverDTO, driver);
