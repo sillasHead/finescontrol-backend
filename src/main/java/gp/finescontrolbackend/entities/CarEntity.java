@@ -25,7 +25,7 @@ public class CarEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private @Setter String plate;
-    private @Setter String brand;
-    private @Setter String color;
+    private @Setter String name;
     private @Setter String renavam;
+    private @Setter boolean status;
 }

@@ -16,7 +16,7 @@ public class CarDTO implements Serializable {
     
     private Long id;
     private String plate;
-    private String brand;
-    private String color;
+    private String name;
     private String renavam;
+    private boolean status; //TODO converter em enum
 }
