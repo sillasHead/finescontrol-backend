@@ -23,7 +23,7 @@ public class DriverEntity implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private @Setter Long id;
     private @Setter String name;
     private @Setter boolean status;
 }

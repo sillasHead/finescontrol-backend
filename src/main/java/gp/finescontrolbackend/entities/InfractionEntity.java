@@ -23,7 +23,7 @@ public class InfractionEntity implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private @Setter Long id;
     private @Setter String description;
     private @Setter Double amount;
     private @Setter String type;

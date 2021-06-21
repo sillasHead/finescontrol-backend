@@ -23,7 +23,7 @@ public class CarEntity implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private @Setter Long id;
     private @Setter String plate;
     private @Setter String name;
     private @Setter String renavam;

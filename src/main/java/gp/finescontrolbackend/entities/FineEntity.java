@@ -27,7 +27,7 @@ public class FineEntity implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private @Setter Long id;
     private @Setter String aitCode;
     private @Setter Instant moment;
     private @Setter Date dueDate;
@@ -37,13 +37,13 @@ public class FineEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "car_id")
-    private CarEntity car;
+    private @Setter CarEntity car;
     
     @ManyToOne
     @JoinColumn(name = "driver_id")
-    private DriverEntity driver;
+    private @Setter DriverEntity driver;
     
     @ManyToOne
     @JoinColumn(name = "infraction_id")
-    private InfractionEntity infraction;
+    private @Setter InfractionEntity infraction;
 }
