@@ -18,4 +18,5 @@ public class InfractionDTO implements Serializable {
     private String description;
     private Double amount;
     private String type;
+    private Short rating;
 }

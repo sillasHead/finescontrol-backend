@@ -13,10 +13,10 @@ insert into driver (name,status) values
 ('CARLOS VAGNER',true),
 ('MARCIO',false);
 
-insert into infraction (description,amount,type) values
-('velocidade',130.16,'media'),
-('faixa',260.32,'grave'),
-('celular',390.48,'gravissima');
+insert into infraction (description,amount,type,rating) values
+('velocidade',130.16,'media',4),
+('faixa',260.32,'grave',5),
+('celular',390.48,'gravissima',7);
 
 insert into fine (ait_code,moment,due_date,payment_date,identified_driver,amount,car_id,driver_id,infraction_id) values
 ('a1b2',TIMESTAMP WITH TIME ZONE'2021-01-01T10:00:00Z','2021-02-01','2021-02-01',false,130.16,1,1,1),

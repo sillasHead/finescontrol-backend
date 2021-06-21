@@ -27,4 +27,5 @@ public class InfractionEntity implements Serializable {
     private @Setter String description;
     private @Setter Double amount;
     private @Setter String type;
+    private @Setter Short rating;
 }
