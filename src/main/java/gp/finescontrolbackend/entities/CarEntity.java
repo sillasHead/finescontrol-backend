@@ -16,16 +16,16 @@ import lombok.Setter;
 
 @Entity @Table(name = "car")
 @NoArgsConstructor @AllArgsConstructor
-@Getter @EqualsAndHashCode(of = "id")
+@Getter @Setter @EqualsAndHashCode(of = "id")
 public class CarEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Setter Long id;
-    private @Setter String plate;
-    private @Setter String name;
-    private @Setter String renavam;
-    private @Setter boolean status;
+    private Long id;
+    private String plate;
+    private String name;
+    private String renavam;
+    private boolean status;
 }

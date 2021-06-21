@@ -16,16 +16,16 @@ import lombok.Setter;
 
 @Entity @Table(name = "infraction")
 @NoArgsConstructor @AllArgsConstructor
-@Getter @EqualsAndHashCode(of = "id")
+@Getter @Setter @EqualsAndHashCode(of = "id")
 public class InfractionEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Setter Long id;
-    private @Setter String description;
-    private @Setter Double amount;
-    private @Setter String type;
-    private @Setter Short rating;
+    private Long id;
+    private String description;
+    private Double amount;
+    private String type;
+    private Short rating;
 }

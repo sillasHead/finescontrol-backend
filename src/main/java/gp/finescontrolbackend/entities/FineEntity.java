@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,30 +22,30 @@ import lombok.Setter;
 
 @Entity @Table(name = "fine")
 @NoArgsConstructor @AllArgsConstructor
-@Getter @EqualsAndHashCode(of = "id")
+@Getter @Setter @EqualsAndHashCode(of = "id")
 public class FineEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Setter Long id;
-    private @Setter String aitCode;
-    private @Setter Instant moment;
-    private @Setter Date dueDate;
-    private @Setter Date paymentDate;
-    private @Setter Boolean identifiedDriver;
-    private @Setter Double amount;
+    private Long id;
+    private String aitCode;
+    private Instant moment;
+    private Date dueDate;
+    private Date paymentDate;
+    private Boolean identifiedDriver;
+    private Double amount;
 
     @ManyToOne
     @JoinColumn(name = "car_id")
-    private @Setter CarEntity car;
+    private CarEntity car;
     
     @ManyToOne
     @JoinColumn(name = "driver_id")
-    private @Setter DriverEntity driver;
+    private DriverEntity driver;
     
     @ManyToOne
     @JoinColumn(name = "infraction_id")
-    private @Setter InfractionEntity infraction;
+    private InfractionEntity infraction;
 }

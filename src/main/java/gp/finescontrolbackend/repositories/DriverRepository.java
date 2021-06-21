@@ -5,10 +5,15 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import gp.finescontrolbackend.dtos.FinesDriverDTO;
 import gp.finescontrolbackend.entities.DriverEntity;
 
 public interface DriverRepository extends JpaRepository<DriverEntity, Long> {
     
-    @Query("Select d from DriverEntity d order by d.status desc, d.name")
+    @Query("select d from DriverEntity d order by d.status desc, d.name")
     public List<DriverEntity> findAll();
+
+    @Query("select new gp.finescontrolbackend.dtos.FinesDriverDTO() " +
+        "from driver as d")
+    public List<FinesDriverDTO> finesDriverByDriverName();
 }
