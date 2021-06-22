@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -12,6 +14,7 @@ import lombok.Setter;
 
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter @EqualsAndHashCode(of = "id")
+@JsonIgnoreProperties(value = "driver", allowSetters = true)
 public class FineDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;

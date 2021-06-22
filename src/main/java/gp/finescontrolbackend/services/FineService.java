@@ -31,7 +31,6 @@ public class FineService {
     @Transactional
     public FineDTO insert(FineDTO fineDTO) {
         FineEntity fine = modelMapper.map(fineDTO, FineEntity.class);
-        
         fine = repository.save(fine);
         return modelMapper.map(fine, FineDTO.class);
     }

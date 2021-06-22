@@ -29,6 +29,6 @@ public class DriverEntity implements Serializable {
     private String name;
     private boolean status;
 
-    // @OneToMany(mappedBy = "driver") //TODO finalizar
-    // private Set<FineEntity> fines;
+    @OneToMany(mappedBy = "driver") //TODO finalizar
+    private Set<FineEntity> fines;
 }

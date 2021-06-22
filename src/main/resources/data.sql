@@ -14,9 +14,9 @@ insert into driver (name,status) values
 ('MARCIO',false);
 
 insert into infraction (description,amount,type,rating) values
-('velocidade',130.16,'media',4),
-('faixa',260.32,'grave',5),
-('celular',390.48,'gravissima',7);
+('Dirigir veículo segurando telefone celular',293.47,'gravíssima',7),
+('Transitar em velocidade superior à máxima permitida em até 20%',130.16,'média',4),
+('Usar qualquer veículo para, deliberadamente, perturbar a circulação na via sem autorização do orgão',5864.40,'auto-suspensiva',7);
 
 insert into fine (ait_code,moment,due_date,payment_date,identified_driver,amount,car_id,driver_id,infraction_id) values
 ('a1b2',TIMESTAMP WITH TIME ZONE'2021-01-01T10:00:00Z','2021-02-01','2021-02-01',false,130.16,1,1,1),

@@ -1,6 +1,7 @@
 package gp.finescontrolbackend.dtos;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,4 +18,5 @@ public class DriverDTO implements Serializable {
     private Long id;
     private String name;
     private boolean status; //TODO converter em enum
+    private List<FineDTO> fines;
 }
