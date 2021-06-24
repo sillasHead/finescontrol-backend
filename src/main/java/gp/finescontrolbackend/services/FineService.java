@@ -34,4 +34,12 @@ public class FineService {
         fine = repository.save(fine);
         return modelMapper.map(fine, FineDTO.class);
     }
+
+    @Transactional
+    public FineDTO update(Long id, FineDTO fineDTO) {
+        FineEntity fine = repository.getOne(id);
+        modelMapper.map(fineDTO, fine);
+        FineDTO fineUpdated = modelMapper.map(repository.save(fine), FineDTO.class);
+        return fineUpdated;
+    }
 }
